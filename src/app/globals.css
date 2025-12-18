@@ -1,26 +1,233 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-great-vibes: "Great Vibes", cursive;
+  --font-poppins: "Poppins", sans-serif;
+  
+  /* Wedding Colors */
+  --color-wedding-gold: #D4AF37;
+  --color-wedding-gold-light: #F5E6B3;
+  --color-wedding-gold-dark: #B8960C;
+  --color-wedding-red: #8B0000;
+  --color-wedding-red-light: #DC143C;
+  --color-wedding-cream: #FFF8E7;
+  --color-wedding-burgundy: #722F37;
+  
+  /* Event Colors */
+  --color-haldi-primary: #FFD700;
+  --color-haldi-secondary: #FFA500;
+  --color-haldi-bg: #FFFACD;
+  
+  --color-mehendi-primary: #228B22;
+  --color-mehendi-secondary: #2E8B57;
+  --color-mehendi-bg: #F0FFF0;
+  
+  --color-sangeet-primary: #C71585;
+  --color-sangeet-secondary: #FF1493;
+  --color-sangeet-bg: #FFF0F5;
+  
+  --color-wedding-primary: #8B0000;
+  --color-wedding-secondary: #DC143C;
+  --color-wedding-bg: #FFF5F5;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+::-webkit-scrollbar-track {
+  background: var(--color-wedding-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-wedding-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-wedding-gold-dark);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-wedding-cream);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Selection color */
+::selection {
+  background: var(--color-wedding-gold);
+  color: white;
+}
+
+/* Ornamental Divider */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.ornament-divider::before,
+.ornament-divider::after {
+  content: "";
+  height: 1px;
+  width: 100px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-wedding-gold),
+    transparent
+  );
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(20px) rotate(-5deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-wedding-gold) 0%,
+    var(--color-wedding-gold-light) 50%,
+    var(--color-wedding-gold) 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-petal-fall {
+  animation: petal-fall linear infinite;
+}
+
+/* Mandala pattern background */
+.mandala-bg {
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-wedding-gold), var(--color-wedding-gold-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effects */
+.event-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Rangoli pattern */
+.rangoli-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Section backgrounds */
+.section-haldi {
+  background: linear-gradient(135deg, #FFFACD 0%, #FFF8DC 100%);
+}
+
+.section-mehendi {
+  background: linear-gradient(135deg, #F0FFF0 0%, #E8F5E9 100%);
+}
+
+.section-sangeet {
+  background: linear-gradient(135deg, #FFF0F5 0%, #FCE4EC 100%);
+}
+
+.section-wedding {
+  background: linear-gradient(135deg, #FFF5F5 0%, #FFEBEE 100%);
 }
