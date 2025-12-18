@@ -17,12 +17,28 @@ export default function MusicPlayer() {
     }
 
     audio.volume = 0.6;
+    console.info("[MusicPlayer] Audio element initialised", {
+      volume: audio.volume,
+      autoplayAttempted: autoplayAttemptedRef.current,
+    });
 
     const handlePlay = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
+    const handleCanPlay = () => {
+      console.info("[MusicPlayer] Audio can play through");
+    };
+    const handleAudioError = () => {
+      const mediaError = audio.error;
+      console.error("[MusicPlayer] Audio error", {
+        code: mediaError?.code,
+        message: mediaError?.message,
+      });
+    };
 
     audio.addEventListener("play", handlePlay);
     audio.addEventListener("pause", handlePause);
+    audio.addEventListener("canplaythrough", handleCanPlay);
+    audio.addEventListener("error", handleAudioError);
 
     const attemptAutoplay = async () => {
       if (!audio || autoplayAttemptedRef.current) {
@@ -46,6 +62,8 @@ export default function MusicPlayer() {
       window.clearTimeout(autoplayTimer);
       audio.removeEventListener("play", handlePlay);
       audio.removeEventListener("pause", handlePause);
+      audio.removeEventListener("canplaythrough", handleCanPlay);
+      audio.removeEventListener("error", handleAudioError);
     };
   }, []);
 
@@ -64,8 +82,10 @@ export default function MusicPlayer() {
 
     try {
       if (isPlaying) {
+        console.info("[MusicPlayer] Pausing audio");
         audio.pause();
       } else {
+        console.info("[MusicPlayer] Attempting to play audio");
         await audio.play();
       }
     } catch (error) {

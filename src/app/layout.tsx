@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ClientLogger from "@/components/ClientLogger";
 
 export const metadata: Metadata = {
   title: "Minal & Rohit Wedding | 8th February 2026",
@@ -46,6 +47,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <ClientLogger />
         {children}
       </body>
     </html>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Sun, Palette, Music, Heart, MapPin, X } from "lucide-react";
 
 interface Event {
@@ -146,13 +146,19 @@ const EventModal = ({
 }: {
   event: Event;
   onClose: () => void;
-}) => (
+}) => {
+  const handleClose = () => {
+    console.info("[EventsSection] Closing event modal", event.id);
+    onClose();
+  };
+
+  return (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
     className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
-    onClick={onClose}
+    onClick={handleClose}
   >
     <motion.div
       initial={{ scale: 0.9, opacity: 0 }}
@@ -168,7 +174,7 @@ const EventModal = ({
     >
       <button
         type="button"
-        onClick={onClose}
+        onClick={handleClose}
         className="absolute top-4 right-4 z-10 rounded-full bg-white/80 backdrop-blur-sm p-2 text-gray-700 shadow-sm transition-colors hover:bg-white"
       >
         <X className="w-5 h-5 text-gray-700" />
@@ -183,10 +189,23 @@ const EventModal = ({
       </div>
     </motion.div>
   </motion.div>
-);
+  );
+};
 
 export default function EventsSection() {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+
+  useEffect(() => {
+    console.table(
+      events.map((event) => ({
+        id: event.id,
+        name: event.name,
+        image: event.image,
+        detailImage: event.detailImage,
+      }))
+    );
+    console.info("[EventsSection] Events loaded", { count: events.length });
+  }, []);
 
   return (
     <section
@@ -244,7 +263,10 @@ export default function EventsSection() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -10, boxShadow: `0 25px 60px ${event.shadowHover}` }}
-              onClick={() => setSelectedEvent(event)}
+              onClick={() => {
+                console.info("[EventsSection] Opening event modal", event.id);
+                setSelectedEvent(event);
+              }}
               className="cursor-pointer rounded-3xl p-6 shadow-lg transition-all duration-300 border-2 relative overflow-hidden"
               style={{
                 background: event.cardBackground,
