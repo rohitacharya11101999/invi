@@ -126,7 +126,7 @@ const OrnamentalBorder = () => (
 export default function HeroSection() {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden px-4 py-16 sm:py-0"
       style={{
         backgroundImage:
           "linear-gradient(135deg, rgba(247,242,235,0.95) 0%, rgba(209,194,169,0.85) 35%, rgba(157,163,127,0.75) 70%, rgba(140,148,156,0.8) 100%), url('https://images.unsplash.com/photo-1523528283115-0aa522c1e270?auto=format&fit=crop&w=2000&q=80')",
@@ -140,13 +140,13 @@ export default function HeroSection() {
       <OrnamentalBorder />
       
       {/* Main content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto w-full">
         {/* Top ornament */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="mb-6"
+          className="mb-4 sm:mb-6"
         >
           <svg width="120" height="40" viewBox="0 0 120 40" className="mx-auto text-[#c68829]">
             <path
@@ -174,7 +174,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[#7c4a2b] tracking-[0.3em] text-sm uppercase mb-4 font-light"
+          className="text-[#7c4a2b] tracking-[0.2em] sm:tracking-[0.3em] text-xs sm:text-sm uppercase mb-3 sm:mb-4 font-light"
         >
           Together with their families
         </motion.p>
@@ -184,22 +184,22 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="mb-6"
+          className="mb-4 sm:mb-6"
         >
-          <h1 className="font-['Great_Vibes'] text-6xl md:text-8xl text-[#9e464d] mb-2">
+          <h1 className="font-['Great_Vibes'] text-5xl sm:text-6xl md:text-8xl text-[#9e464d] mb-2">
             Minal
           </h1>
-          <div className="flex items-center justify-center gap-4 my-4">
-            <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-[#c68829]" />
+          <div className="flex items-center justify-center gap-3 sm:gap-4 my-3 sm:my-4">
+            <div className="w-12 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#c68829]" />
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <Heart className="w-6 h-6 text-[#c68829] fill-[#c68829]" />
+              <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-[#c68829] fill-[#c68829]" />
             </motion.div>
-            <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-[#c68829]" />
+            <div className="w-12 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#c68829]" />
           </div>
-          <h1 className="font-['Great_Vibes'] text-6xl md:text-8xl text-[#9e464d]">
+          <h1 className="font-['Great_Vibes'] text-5xl sm:text-6xl md:text-8xl text-[#9e464d]">
             Rohit
           </h1>
         </motion.div>
@@ -209,7 +209,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-[#7c4a2b] text-lg mb-8 font-['Cormorant_Garamond'] italic"
+          className="text-[#7c4a2b] text-base sm:text-lg mb-6 sm:mb-8 font-['Cormorant_Garamond'] italic px-2"
         >
           Request the pleasure of your company at their wedding celebration
         </motion.p>
@@ -219,16 +219,16 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="inline-block"
+          className="inline-block w-full sm:w-auto"
         >
-          <div className="relative px-8 py-4 border-2 border-[#c68829]/30 rounded-lg bg-white/60 backdrop-blur-sm">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#f7ede0] px-4 shadow-sm rounded-full">
-              <span className="text-[#c68829] text-sm tracking-widest">SAVE THE DATE</span>
+          <div className="relative px-4 sm:px-8 py-3 sm:py-4 border-2 border-[#c68829]/30 rounded-lg bg-white/60 backdrop-blur-sm mx-auto max-w-sm sm:max-w-none">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#f7ede0] px-3 sm:px-4 shadow-sm rounded-full">
+              <span className="text-[#c68829] text-xs sm:text-sm tracking-widest">SAVE THE DATE</span>
             </div>
-            <p className="font-['Cormorant_Garamond'] text-3xl md:text-4xl text-[#9e464d] font-semibold">
+            <p className="font-['Cormorant_Garamond'] text-2xl sm:text-3xl md:text-4xl text-[#9e464d] font-semibold">
               8th February 2026
             </p>
-            <p className="text-[#7c4a2b] mt-2 tracking-wider">
+            <p className="text-[#7c4a2b] mt-1 sm:mt-2 tracking-wider text-sm sm:text-base">
               Golmuri Club, Jamshedpur
             </p>
           </div>
@@ -239,9 +239,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
-          className="mt-8"
+          className="mt-6 sm:mt-8"
         >
-          <svg width="200" height="30" viewBox="0 0 200 30" className="mx-auto text-[#c68829]">
+          <svg width="160" height="24" viewBox="0 0 200 30" className="mx-auto text-[#c68829] w-32 sm:w-48">
             <path
               d="M0 15 Q50 5 100 15 Q150 25 200 15"
               fill="none"
@@ -259,7 +259,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}

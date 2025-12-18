@@ -113,7 +113,7 @@ export default function MusicPlayer() {
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 2 }}
-        className="fixed bottom-6 right-6 z-40"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40"
       >
         {/* Tooltip */}
         <AnimatePresence>
@@ -122,9 +122,9 @@ export default function MusicPlayer() {
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 10 }}
-              className="absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap"
+              className="absolute right-full mr-2 sm:mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap"
             >
-              <div className="bg-[#8B0000] text-white text-sm px-4 py-2 rounded-lg shadow-lg">
+              <div className="bg-[#8B0000] text-white text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg shadow-lg">
                 Tap to play music
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 rotate-45 w-2 h-2 bg-[#8B0000]" />
               </div>
@@ -137,7 +137,7 @@ export default function MusicPlayer() {
           onClick={togglePlay}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className={`relative w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-colors ${
+          className={`relative w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-lg flex items-center justify-center transition-colors ${
             isPlaying
               ? "bg-[#8B0000] text-white"
               : "bg-white text-[#8B0000] border-2 border-[#D4AF37]"

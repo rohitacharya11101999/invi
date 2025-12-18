@@ -5,7 +5,7 @@ import { Camera, Heart } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="py-12 bg-[#8B0000] text-white relative overflow-hidden">
+    <footer className="py-8 sm:py-12 bg-[#8B0000] text-white relative overflow-hidden">
       {/* Decorative pattern */}
       <div className="absolute inset-0 opacity-10">
         <div
@@ -16,15 +16,15 @@ export default function Footer() {
         />
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
         {/* Decorative top element */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-8"
+          className="mb-6 sm:mb-8"
         >
-          <svg width="100" height="30" viewBox="0 0 100 30" className="mx-auto text-[#D4AF37]">
+          <svg width="80" height="24" viewBox="0 0 100 30" className="mx-auto text-[#D4AF37] sm:w-[100px] sm:h-[30px]">
             <path
               d="M0 15 Q25 5 50 15 Q75 25 100 15"
               fill="none"
@@ -44,17 +44,17 @@ export default function Footer() {
           viewport={{ once: true }}
           className="mb-4"
         >
-          <div className="flex items-center justify-center gap-4 mb-4 text-[#D4AF37]">
-            <span className="h-px w-12 bg-current/40" />
-            <svg width="28" height="28" viewBox="0 0 24 24" className="text-[#D4AF37]">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4 text-[#D4AF37]">
+            <span className="h-px w-8 sm:w-12 bg-current/40" />
+            <svg width="24" height="24" viewBox="0 0 24 24" className="text-[#D4AF37] sm:w-7 sm:h-7">
               <path
                 d="M12 3L4 9l8 12 8-12-8-6zm0 2.618L17.05 9 12 16.382 6.95 9 12 5.618z"
                 fill="currentColor"
               />
             </svg>
-            <span className="h-px w-12 bg-current/40" />
+            <span className="h-px w-8 sm:w-12 bg-current/40" />
           </div>
-          <h2 className="font-['Great_Vibes'] text-5xl md:text-6xl">Minal & Rohit</h2>
+          <h2 className="font-['Great_Vibes'] text-4xl sm:text-5xl md:text-6xl">Minal & Rohit</h2>
         </motion.div>
 
         {/* Date */}
@@ -63,7 +63,7 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-[#D4AF37] text-lg mb-6"
+          className="text-[#D4AF37] text-base sm:text-lg mb-4 sm:mb-6"
         >
           8th February 2026
         </motion.p>
@@ -74,11 +74,11 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-xl mb-8 font-['Cormorant_Garamond'] italic flex items-center justify-center gap-3"
+          className="text-lg sm:text-xl mb-6 sm:mb-8 font-['Cormorant_Garamond'] italic flex items-center justify-center gap-2 sm:gap-3"
         >
-          <Camera className="w-5 h-5 text-[#D4AF37]" />
+          <Camera className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37]" />
           #MinalWedsRohit
-          <Heart className="w-5 h-5 text-[#D4AF37] fill-[#D4AF37]" />
+          <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-[#D4AF37] fill-[#D4AF37]" />
         </motion.div>
 
         {/* Thank you message */}
@@ -87,7 +87,7 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="text-white/80 mb-8 max-w-md mx-auto"
+          className="text-white/80 mb-6 sm:mb-8 max-w-md mx-auto text-sm sm:text-base px-2"
         >
           Thank you for being a part of our special day. Your presence and blessings mean the world to us.
         </motion.p>
@@ -96,9 +96,9 @@ export default function Footer() {
         <motion.div
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 mb-8"
+          className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 mb-6 sm:mb-8"
         >
-          <Heart className="w-6 h-6 text-[#D4AF37] fill-[#D4AF37]" />
+          <Heart className="w-5 h-5 sm:w-6 sm:h-6 text-[#D4AF37] fill-[#D4AF37]" />
         </motion.div>
 
         {/* Bottom text */}
@@ -107,14 +107,14 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="border-t border-white/20 pt-6"
+          className="border-t border-white/20 pt-4 sm:pt-6"
         >
-          <p className="text-white/60 text-sm">
+          <p className="text-white/60 text-xs sm:text-sm">
             Made with{" "}
-            <Heart className="w-4 h-4 inline text-red-400 fill-red-400" />{" "}
+            <Heart className="w-3 h-3 sm:w-4 sm:h-4 inline text-red-400 fill-red-400" />{" "}
             for our wedding celebration
           </p>
-          <p className="text-white/40 text-xs mt-2">
+          <p className="text-white/40 text-[10px] sm:text-xs mt-2">
             © 2026 Minal & Rohit. All hearts reserved.
           </p>
         </motion.div>

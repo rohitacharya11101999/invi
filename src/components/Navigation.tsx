@@ -34,12 +34,12 @@ export default function Navigation() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-14 sm:h-16">
             {/* Logo */}
             <a href="#" className="flex items-center gap-2">
-              <Heart className={`w-5 h-5 ${scrolled ? "text-[#8B0000]" : "text-[#D4AF37]"} fill-current`} />
-              <span className={`font-['Great_Vibes'] text-2xl ${scrolled ? "text-[#8B0000]" : "text-[#8B0000]"}`}>
+              <Heart className={`w-4 h-4 sm:w-5 sm:h-5 ${scrolled ? "text-[#8B0000]" : "text-[#D4AF37]"} fill-current`} />
+              <span className={`font-['Great_Vibes'] text-xl sm:text-2xl ${scrolled ? "text-[#8B0000]" : "text-[#8B0000]"}`}>
                 M & R
               </span>
             </a>
@@ -62,9 +62,9 @@ export default function Navigation() {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(true)}
-              className="md:hidden p-2 rounded-lg hover:bg-[#D4AF37]/10"
+              className="md:hidden p-2.5 rounded-lg hover:bg-[#D4AF37]/10 active:bg-[#D4AF37]/20 touch-manipulation"
             >
-              <Menu className={`w-6 h-6 ${scrolled ? "text-gray-700" : "text-[#8B4513]"}`} />
+              <Menu className={`w-5 h-5 sm:w-6 sm:h-6 ${scrolled ? "text-gray-700" : "text-[#8B4513]"}`} />
             </button>
           </div>
         </div>
@@ -94,26 +94,26 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 bottom-0 w-72 bg-[#FFF8E7] shadow-2xl"
+              className="absolute right-0 top-0 bottom-0 w-64 sm:w-72 bg-[#FFF8E7] shadow-2xl"
             >
               {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-[#D4AF37]/20">
+              <div className="flex items-center justify-between p-3 sm:p-4 border-b border-[#D4AF37]/20">
                 <div className="flex items-center gap-2">
-                  <Heart className="w-5 h-5 text-[#8B0000] fill-current" />
-                  <span className="font-['Great_Vibes'] text-2xl text-[#8B0000]">
+                  <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-[#8B0000] fill-current" />
+                  <span className="font-['Great_Vibes'] text-xl sm:text-2xl text-[#8B0000]">
                     M & R
                   </span>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 rounded-lg hover:bg-[#D4AF37]/10"
+                  className="p-2.5 rounded-lg hover:bg-[#D4AF37]/10 active:bg-[#D4AF37]/20 touch-manipulation"
                 >
-                  <X className="w-6 h-6 text-gray-700" />
+                  <X className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
                 </button>
               </div>
 
               {/* Links */}
-              <div className="p-4 space-y-2">
+              <div className="p-3 sm:p-4 space-y-1 sm:space-y-2">
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.name}
@@ -122,7 +122,7 @@ export default function Navigation() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                     onClick={() => setIsOpen(false)}
-                    className="block py-3 px-4 text-gray-700 hover:bg-[#D4AF37]/10 rounded-xl transition-colors"
+                    className="block py-3 px-4 text-gray-700 hover:bg-[#D4AF37]/10 active:bg-[#D4AF37]/20 rounded-xl transition-colors touch-manipulation text-sm sm:text-base"
                   >
                     {item.name}
                   </motion.a>
@@ -130,11 +130,11 @@ export default function Navigation() {
               </div>
 
               {/* Bottom decoration */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-[#D4AF37]/20">
-                <p className="text-center text-[#8B4513] text-sm">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 border-t border-[#D4AF37]/20">
+                <p className="text-center text-[#8B4513] text-xs sm:text-sm">
                   8th February 2026
                 </p>
-                <p className="text-center text-[#D4AF37] text-xs mt-1">
+                <p className="text-center text-[#D4AF37] text-[10px] sm:text-xs mt-1">
                   #MinalWedsRohit
                 </p>
               </div>

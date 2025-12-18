@@ -157,33 +157,33 @@ const EventModal = ({
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
-    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+    className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/50 backdrop-blur-sm"
     onClick={handleClose}
   >
     <motion.div
       initial={{ scale: 0.9, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.9, opacity: 0 }}
-      className="relative max-w-2xl w-full rounded-[28px] overflow-hidden border-4 bg-white shadow-2xl"
+      className="relative max-w-2xl w-full rounded-xl sm:rounded-[28px] overflow-hidden border-2 sm:border-4 bg-white shadow-2xl"
       style={{
         borderColor: `${event.borderColor}80`,
         boxShadow: `0 28px 70px ${event.shadowColor}`,
-        maxHeight: "85vh",
+        maxHeight: "90vh",
       }}
       onClick={(e) => e.stopPropagation()}
     >
       <button
         type="button"
         onClick={handleClose}
-        className="absolute top-4 right-4 z-10 rounded-full bg-white/80 backdrop-blur-sm p-2 text-gray-700 shadow-sm transition-colors hover:bg-white"
+        className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 rounded-full bg-white/80 backdrop-blur-sm p-1.5 sm:p-2 text-gray-700 shadow-sm transition-colors hover:bg-white"
       >
-        <X className="w-5 h-5 text-gray-700" />
+        <X className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
       </button>
-      <div className="bg-white p-4 md:p-5 flex items-center justify-center h-full">
+      <div className="bg-white p-2 sm:p-4 md:p-5 flex items-center justify-center h-full">
         <img
           src={event.detailImage}
           alt={event.detailImageAlt}
-          className="w-full max-h-[75vh] object-contain"
+          className="w-full max-h-[80vh] object-contain"
           loading="lazy"
         />
       </div>
@@ -210,7 +210,7 @@ export default function EventsSection() {
   return (
     <section
       id="events"
-      className="py-20 relative overflow-hidden"
+      className="py-12 sm:py-20 relative overflow-hidden"
       style={{
         background: "linear-gradient(140deg, #fdf2e1 0%, #f0ddc8 45%, rgba(214,184,137,0.35) 100%)",
       }}
@@ -225,18 +225,18 @@ export default function EventsSection() {
         />
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <p className="text-[#c68829] tracking-[0.3em] text-sm uppercase mb-2">
+          <p className="text-[#c68829] tracking-[0.2em] sm:tracking-[0.3em] text-xs sm:text-sm uppercase mb-2">
             Join Us For
           </p>
-          <h2 className="font-['Great_Vibes'] text-5xl md:text-6xl text-[#9e464d] mb-4">
+          <h2 className="font-['Great_Vibes'] text-4xl sm:text-5xl md:text-6xl text-[#9e464d] mb-4">
             Wedding Celebrations
           </h2>
           <div className="flex items-center justify-center gap-3">
@@ -254,7 +254,7 @@ export default function EventsSection() {
         </motion.div>
 
         {/* Event cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {events.map((event, index) => (
             <motion.div
               key={event.id}
@@ -267,7 +267,7 @@ export default function EventsSection() {
                 console.info("[EventsSection] Opening event modal", event.id);
                 setSelectedEvent(event);
               }}
-              className="cursor-pointer rounded-3xl p-6 shadow-lg transition-all duration-300 border-2 relative overflow-hidden"
+              className="cursor-pointer rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-lg transition-all duration-300 border-2 relative overflow-hidden"
               style={{
                 background: event.cardBackground,
                 borderColor: `${event.borderColor}40`,
@@ -288,7 +288,7 @@ export default function EventsSection() {
 
                 {/* Icon */}
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 mx-auto"
+                  className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4 mx-auto"
                   style={{ backgroundColor: `${event.accentColor}20`, color: event.accentColor }}
                 >
                   {event.icon}
@@ -296,37 +296,37 @@ export default function EventsSection() {
 
                 {/* Event name */}
                 <h3
-                  className="font-['Great_Vibes'] text-3xl text-center mb-2"
+                  className="font-['Great_Vibes'] text-2xl sm:text-3xl text-center mb-2"
                   style={{ color: event.accentColor }}
                 >
                   {event.name}
                 </h3>
 
                 {/* Date & Time */}
-                <div className="text-center space-y-1 mb-4 text-gray-800">
-                  <p className="font-semibold">{event.date}</p>
-                  <p className="text-sm font-medium opacity-90">{event.time}</p>
+                <div className="text-center space-y-1 mb-3 sm:mb-4 text-gray-800">
+                  <p className="font-semibold text-sm sm:text-base">{event.date}</p>
+                  <p className="text-xs sm:text-sm font-medium opacity-90">{event.time}</p>
                 </div>
 
                 {/* Venue */}
-                <div className="flex items-center justify-center gap-2 text-gray-800 text-sm font-medium">
-                  <MapPin className="w-4 h-4" style={{ color: event.accentColor }} />
+                <div className="flex items-center justify-center gap-2 text-gray-800 text-xs sm:text-sm font-medium">
+                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4" style={{ color: event.accentColor }} />
                   <span className="truncate">{event.venue}</span>
                 </div>
 
                 {/* Palette swatches */}
-                <div className="flex items-center justify-center gap-2 mt-4">
+                <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-3 sm:mt-4">
                   {event.palette.map((color) => (
                     <div
                       key={color}
-                      className="w-6 h-6 rounded-full border border-white/70"
+                      className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-white/70"
                       style={{ backgroundColor: color }}
                     />
                   ))}
                 </div>
 
                 {/* Click indicator */}
-                <p className="text-center text-xs text-gray-600 mt-4 font-medium">
+                <p className="text-center text-[10px] sm:text-xs text-gray-600 mt-3 sm:mt-4 font-medium">
                   Tap to view the full invite card
                 </p>
               </div>

@@ -63,7 +63,7 @@ export default function CountdownTimer() {
 
   return (
     <section
-      className="py-20 relative overflow-hidden"
+      className="py-12 sm:py-20 relative overflow-hidden"
       style={{
         background: "linear-gradient(140deg, #f8f2ef 0%, #e5cdc8 40%, #ba9995 75%, #567156 100%)",
       }}
@@ -100,12 +100,12 @@ export default function CountdownTimer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="mb-8 sm:mb-12"
         >
-          <p className="text-white/80 tracking-[0.3em] text-sm uppercase mb-2">
+          <p className="text-white/80 tracking-[0.2em] sm:tracking-[0.3em] text-xs sm:text-sm uppercase mb-2">
             Counting Down To
           </p>
-          <h2 className="font-['Great_Vibes'] text-5xl md:text-6xl text-white">
+          <h2 className="font-['Great_Vibes'] text-4xl sm:text-5xl md:text-6xl text-white">
             Our Special Day
           </h2>
           
@@ -122,7 +122,7 @@ export default function CountdownTimer() {
         </motion.div>
 
         {/* Countdown boxes */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {timeUnits.map((unit, index) => (
             <motion.div
               key={unit.label}
@@ -132,22 +132,22 @@ export default function CountdownTimer() {
               transition={{ delay: index * 0.1 }}
               className="relative group"
             >
-              <div className="bg-white/15 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-white/50">
+              <div className="bg-white/15 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-white/50">
                 {/* Decorative corners */}
-                <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-white/30 rounded-tl" />
-                <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-white/30 rounded-tr" />
-                <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-white/30 rounded-bl" />
-                <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-white/30 rounded-br" />
+                <div className="absolute top-1.5 sm:top-2 left-1.5 sm:left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-t-2 border-white/30 rounded-tl" />
+                <div className="absolute top-1.5 sm:top-2 right-1.5 sm:right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-t-2 border-white/30 rounded-tr" />
+                <div className="absolute bottom-1.5 sm:bottom-2 left-1.5 sm:left-2 w-3 sm:w-4 h-3 sm:h-4 border-l-2 border-b-2 border-white/30 rounded-bl" />
+                <div className="absolute bottom-1.5 sm:bottom-2 right-1.5 sm:right-2 w-3 sm:w-4 h-3 sm:h-4 border-r-2 border-b-2 border-white/30 rounded-br" />
 
                 <motion.span
                   key={unit.value}
                   initial={{ scale: 1.2, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  className="block font-['Cormorant_Garamond'] text-5xl md:text-6xl font-bold text-white"
+                  className="block font-['Cormorant_Garamond'] text-4xl sm:text-5xl md:text-6xl font-bold text-white"
                 >
                   {unit.value.toString().padStart(2, "0")}
                 </motion.span>
-                <span className="text-white/80 text-sm tracking-widest uppercase mt-2 block">
+                <span className="text-white/80 text-xs sm:text-sm tracking-widest uppercase mt-1 sm:mt-2 block">
                   {unit.label}
                 </span>
               </div>
@@ -161,7 +161,7 @@ export default function CountdownTimer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-12 text-white/90 font-['Cormorant_Garamond'] text-xl italic"
+          className="mt-8 sm:mt-12 text-white/90 font-['Cormorant_Garamond'] text-lg sm:text-xl italic px-4"
         >
           Until we begin our forever together
         </motion.p>
