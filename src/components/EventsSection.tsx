@@ -114,7 +114,7 @@ const events: Event[] = [
     id: "wedding",
     name: "Wedding",
     date: "8th February 2026",
-    time: "8:00 AM onwards",
+    time: "8:00 PM onwards",
     venue: "Golmuri Club, Jamshedpur",
     description:
       "The sacred union of two souls, where Minal and Rohit will take their seven vows around the holy fire.",

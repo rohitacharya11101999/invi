@@ -108,7 +108,7 @@ export default function VenueSection() {
                     <h4 className="font-semibold text-gray-800 mb-1 text-sm sm:text-base">Event Timings</h4>
                     <p className="text-gray-600 text-sm sm:text-base">
                       Sangeet: 7th Feb, 7:00 PM<br />
-                      Wedding: 8th Feb, 8:00 AM
+                      Wedding: 8th Feb, 8:00 PM
                     </p>
                   </div>
                 </div>
